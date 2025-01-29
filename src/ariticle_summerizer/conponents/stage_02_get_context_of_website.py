@@ -5,19 +5,26 @@ import sys
 from pathlib import Path
 
 
+######
+
+# Get the absolute path to the root directory
 ROOT_dir = Path(__file__).parent.parent.parent.parent.absolute()
 sys.path.append(str(ROOT_dir))
+
 from src.ariticle_summerizer.logging import logging
 from src.ariticle_summerizer.pipeline.webscraping_pipeline import webscraping_pipeline_main
 from src.ariticle_summerizer.utils.common import read_yaml_file
-from src.ariticle_summerizer.constants import config_yaml_file_path
-
 load_dotenv()
 
 # Configure Gemini API
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-pro')
+
+
+CONFIG_DIR = Path(__file__).resolve().parent.parent.parent.parent
+config_yaml_file_path = CONFIG_DIR / "config" / "config.yaml"  # Pathlib join
+####
 
 stage_02_config = read_yaml_file(config_yaml_file_path)
 print(stage_02_config)
