@@ -1,3 +1,9 @@
+# website link
+https://news-perspective-generator-eswar-datta.onrender.com/ -->website
+https://www.bbc.com/news/articles/cjd5835mp4ko -->example ariticle
+
+Due to api issue the website is not working now will fix in few days
+
 # News Article Perspective Generator
 
 A web application that analyzes news articles from multiple perspectives using Google's Gemini AI. The application provides analysis from:
